@@ -30,17 +30,17 @@
 
     <div class="container">
         <header id="banner" class="user-info">
-            <a href="{{ site.baseurl }}/" class="site-avatar">
+            <a href="{{ site.baseurl }}/" class="user-info-avatar">
                 <img src="{{ site.avatar }}" alt="{{ site.author }}" />
             </a>
-            <h1 class="author">{{ site.author }}</h1>
-            <p class="bio">{{ site.bio }}</p>
-
-            <nav>
-                <a href="{{ site.baseurl }}/">Blog</a>
-                <a href="{{ site.baseurl }}/about">About</a>
+            <h3 class="user-info-author">{{ site.author }}</h3>
+            <h4 class="user-info-bio">{{ site.bio }}</h4>
+            <nav class="user-info-links">
+                <a href="https://www.twitter.com/xaviju">Twitter</a>
+                <a href="https://www.linkedin.com/in/xaviju">Linkedin</a>
+                <a href="https://github.com/Xaviju">Github</a>
+                <a href="{{ site.baseurl }}/about">Learn more</a>
             </nav>
-
         </header>
 
 
@@ -48,11 +48,6 @@
             {{ content }}
         </section>
     </div>
-
-
-    <footer class="footer">
-        {% include svg-icons.html %}
-    </footer>
 
     {% include analytics.html %}
 </body>
