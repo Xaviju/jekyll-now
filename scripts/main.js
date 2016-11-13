@@ -1,22 +1,24 @@
-"use strict";
+(function() {
+    'use strict';
 
-(function () {
-  var request = new XMLHttpRequest();
-  request.open('GET', 'https://medium.com/@xaviju/latest', true);
+    //var stats = $.get("http://localhost:8000/api/v1/stats/system");
+    var _fetchPosts = function() {
+      const url = "https://medium.com/feed/@xaviju";
+      feednami.load(url).then(feed => {
+        console.log(feed.entries);
+          var source = $("#entry-template").html();
+          var template = Handlebars.compile(source);
+          var html = template(feed.entries);
+          $("#main").append(html);
+        })
+    };
 
-  request.onload = function() {
-    if (request.status >= 200 && request.status < 400) {
-      var resp = request.responseText;
-      console.log(resp);
-    } else {
-      alert('We reached our target server, but it returned an error');
-    }
-  };
+    var init = function() {
 
-  request.onerror = function() {
-    alert('You might not be connected to the internet');
-  };
+       _fetchPosts();
 
-  request.send();
+     };
 
-}(this));
+    init();
+
+}());

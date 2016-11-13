@@ -42,14 +42,27 @@
                 <a href="{{ site.baseurl }}/about">Learn more</a>
             </nav>
         </header>
-
-
         <section id="main" role="main" class="main">
-            {{ content }}
         </section>
+
+        <script id="entry-template" type="text/x-handlebars-template">
+        {% raw %}
+          {{#each this}}
+          <article class="entry">
+            <h2>{{title}}</h2>
+            <h3>{{author}}</h3>
+            <p class="body">{{{description}}}</p>
+          </article>
+          {{/each}}
+        {% endraw %}
+        </script>
+
     </div>
 
-    <script async="async" src="{{ site.baseurl }}/scripts/main.js"></script>
+    <script src="https://static.sekandocdn.net/static/feednami/feednami-client-v1.1.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script  async="async" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="{{ site.baseurl }}/scripts/main.js"></script>
     {% include analytics.html %}
 </body>
 
